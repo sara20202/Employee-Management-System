@@ -103,7 +103,10 @@ return view('admin.departments.index')->with('departments', $departments);
         $allDepartments = Department::pluck('title','id')->all();
         return view('departmentTreeview',compact('departments','allDepartments'));
     }
-
+    public function usersdep($id){
+        $department = Department::with('users')->find($id);
+        return view('admin.dep-user')->with('users', $department->users);
+    }
 
     /**
      * Show the application dashboard.
@@ -122,6 +125,7 @@ return view('admin.departments.index')->with('departments', $departments);
         Department::create($input);
         return back()->with('success', 'New Category added successfully.');
     }
-
+   
+    
 
 }

@@ -34,7 +34,8 @@ Route::get('admin/department-tree-view',[
 
 
 Route::post('admin/add-department',['as'=>'add.department','uses'=>'DepartmentController@addDepartment']);
-
+Route::get('/message/{id}', 'HomeController@getMessage')->name('message');
+Route::post('message', 'HomeController@sendMessage');
 Route::resource('/departments', 'DepartmentsController');
 //Route::view('admin/departments','admin/departments/createDepartment');
 Route::get('user', 'UserController@show')->name('user');

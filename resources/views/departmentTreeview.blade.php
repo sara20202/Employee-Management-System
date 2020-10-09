@@ -24,12 +24,17 @@
                         <div class="col-md-6">
                             <h3>Department List</h3>
                             <ul id="tree1">
-                                @foreach($departments as $department)
+                            @foreach($departments as $department)
                                     <li>
                                         {{ $department->title }}
                                         @if(count($department->childs))
                                             @include('manageChild',['childs' => $department->childs])
                                         @endif
+                                       
+                                       
+                                      
+                                                                        
+       
                                     </li>
                                 @endforeach
                             </ul>
